@@ -2,11 +2,21 @@
 (function() {
   "use strict";
 
-  angular.module("app").controller("todoCtrl", function($scope) {
-    $scope.purpleHippo = "Hello World";
-    $scope.yellowHippo = "Bye World";
-    $scope.coffeeHippo = "I want more coffee!"
+  angular.module("app").controller("todoCtrl", function($scope)  {
+    // $scope.purpleHippo = "Buy coffee";
+    // $scope.yellowHippo = "Grind coffee";
+    // $scope.coffeeHippo = "Drink coffee!"
+    $scope.hippos = ["Buy coffee", "Grind coffee", "Drink coffee"];
 
-    window.$scope = $scope;
+    $scope.addHippo = function(hippo) {
+      if (hippo) {
+        $scope.hippos.push(hippo);
+        $scope.newHippo = null;
+      }
+    };
+
+    $scope.removeHippo = function(index) {
+      $scope.hippos.splice(index, 1);
+    };
   });
 }());

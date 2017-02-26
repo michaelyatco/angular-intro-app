@@ -3,12 +3,9 @@
 
   <div ng-controller="todoCtrl">
      <h2>To do list:</h2>
-      <div ng-repeat="hippo in hippos">
+      <div ng-repeat="hippo in hippos track by $index">
         <p ng-click="removeHippo($index)">{{ hippo }}</p>
         <input ng-model="hippo">
-      </div>
-    
-      <input ng-model="hippo" onFocus="this.value=''">
       </div>
 
       <h3>Leave a new task here: </h3>

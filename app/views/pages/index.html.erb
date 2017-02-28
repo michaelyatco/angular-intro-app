@@ -2,10 +2,10 @@
   <div ng-controller="todoCtrl">
      <h2>To do list:</h2>
       <div ng-repeat="hippo in hippos track by $index">
-      <p ng-click="toggleTask(hippo)" ng-class="{strike: hippo.completed}">Task: {{ hippo.task }}</p>
+      <p ng-click="markComplete(hippo)" ng-class="{strike: hippo.completed}">Task: {{ hippo.task }}</p>
       <!-- <p > {{ hippo.task }}</p> -->
       </div>
-      <p>Counter: {{ countTasks() }}</p>
+      <p>Number of incomplete tasks: {{ countTasks() }}</p>
       <h3>Leave a new task here: </h3>
 
       <p>Task: <input ng-model="newTask"></p>

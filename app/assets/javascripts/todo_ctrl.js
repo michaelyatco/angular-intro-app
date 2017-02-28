@@ -22,7 +22,7 @@
       }
     };
 
-    $scope.toggleTask = function(hippo) {
+    $scope.markComplete = function(hippo) {
       hippo.completed = !hippo.completed;
     };
 
@@ -37,10 +37,16 @@
     };
 
     $scope.removeCompleted = function() {
+      var completedTasks = [];
+
       for (var i = 0; i < $scope.hippos.length; i++) {
-        if ($scope.hippos[i].completed === true) {
-          $scope.hippos.splice(i, 1);
+        if ($scope.hippos[i].completed) {
+          completedTasks.push($scope.hippos[i]);
         }
+      }
+
+      for (var j = 0; j < completedTasks.length; j++) {
+        $scope.hippos.splice($scope.hippos.indexOf(completedTasks[j]), 1);
       }
     };
   });
